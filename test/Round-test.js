@@ -41,7 +41,7 @@ describe('Round', () => {
         expect(round1.returnCurrentCard()).to.deep.equal(card1);
     })
 
-    it('should have a card ready when created', function() {
+    it('should have a card ready when created', () => {
         expect(round1.currentCard).to.be.an.instanceof(Card);
     });
 
@@ -49,17 +49,17 @@ describe('Round', () => {
         expect(round1.turns).to.equal(0);
     })
 
-    it('should store the first card as the current card', function() {
+    it('should store the first card as the current card', () => {
         expect(round1.currentCard).to.deep.equal(card1);
         expect(round2.currentCard).to.deep.equal(card1);
     });
 
-    it('should return the current card', function() {
+    it('should return the current card', () => {
         expect(round1.returnCurrentCard()).to.deep.equal(card1);
         expect(round2.returnCurrentCard()).to.deep.equal(card1);
     });
 
-    it('should update turn count by 1 for each turn', function() {
+    it('should update turn count by 1 for each turn', () => {
         round1.takeTurn('object');
         round1.takeTurn('function');
         round1.takeTurn('array');
@@ -72,23 +72,22 @@ describe('Round', () => {
         expect(round1.currentCard).to.deep.equal(card1);
     });
 
-    it('should give feedback for correct guesses', function() {
+    it('should give feedback for correct guesses', () => {
         expect(round1.takeTurn('object')).to.equal('correct!');
     });
 
-    it('should calculate percent of correct guesses', function() {
+    it('should calculate percent of correct guesses', () => {
         round1.takeTurn('object');
         round1.takeTurn('array');
         round1.takeTurn('mutator method');
         expect(round1.calculatePercentCorrect()).to.equal(100);
     });
 
-    it('should prompt the end of round by providing an end round message and percent correct score', function() {
+    it('should prompt the end of round by providing an end round message and percent correct score', () => {
         round1.takeTurn('seagull');
         round1.takeTurn('waves');
         round1.takeTurn('mutator method');
         expect(round1.endRound()).to.equal('Round over! You answered 100% of the questions correctly!');
     });
-
 
 })
