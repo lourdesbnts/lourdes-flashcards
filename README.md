@@ -28,6 +28,6 @@ Repeat these steps for the remainder of the deck.
 Once you have reached the end of the deck, you'll see a message with your score!
 
 ## See the Flash Cards In Action
-![Functionality GIF]()
+![Functionality GIF](https://media.giphy.com/media/oAbPPVAk7pJwhrRRl4/giphy.gif)
 
 
