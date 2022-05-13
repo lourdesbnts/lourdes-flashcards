@@ -66,10 +66,29 @@ describe('Round', () => {
         expect(round1.turns).to.equal(3);
     });
 
-    // it('should create a new Turn instance when a guess is made', () => {
-    //     round1.takeTurn('object');
-    //     expect(round1.currentTurn).to.be.an.instanceof(Turn);
-    // })
+    it('should update current card after a turn is taken', function() {
+        round1.takeTurn('object');
+        // console.log(round1)
+        expect(round1.currentCard).to.deep.equal(card1);
+    });
+
+    it('should give feedback for correct guesses', function() {
+        expect(round1.takeTurn('object')).to.equal('correct!');
+    });
+
+    it('should calculate percent of correct guesses', function() {
+        round1.takeTurn('object');
+        round1.takeTurn('array');
+        round1.takeTurn('mutator method');
+        expect(round1.calculatePercentCorrect()).to.equal(100);
+    });
+
+    it('should prompt the end of round by providing an end round message and percent correct score', function() {
+        round1.takeTurn('seagull');
+        round1.takeTurn('waves');
+        round1.takeTurn('mutator method');
+        expect(round1.endRound()).to.equal('Round over! You answered 100% of the questions correctly!');
+    });
 
 
 })
