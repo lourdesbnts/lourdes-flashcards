@@ -23,6 +23,16 @@ class Round {
         }
         return turn.giveFeedback();
     }
+
+    calculatePercentCorrect() {
+        const percentage = ((this.turns - this.incorrectGuesses.length) / this.turns) * 100;
+        return percentage;
+      }
+
+      endRound() {
+        console.log(`Round over! You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+        return `Round over! You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+      }
 }
 
 
